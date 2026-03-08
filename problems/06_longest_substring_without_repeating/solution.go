@@ -7,7 +7,7 @@ func LengthOfLongestSubstring(s string) int {
 	longest := 0
 
 	for {
-		if start == len(s)-1 {
+		if start >= len(s)-1 {
 			return longest
 		}
 

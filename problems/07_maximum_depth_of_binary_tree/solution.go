@@ -9,5 +9,16 @@ type TreeNode struct {
 
 // MaxDepth returns the maximum depth of the binary tree.
 func MaxDepth(root *TreeNode) int {
-	return 0
+
+	if root == nil {
+		return 0
+	}
+
+	leftMax := MaxDepth(root.Left)
+	rightMax := MaxDepth(root.Right)
+	if leftMax > rightMax {
+		return leftMax + 1
+	} else {
+		return rightMax + 1
+	}
 }
