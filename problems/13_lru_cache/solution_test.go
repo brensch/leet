@@ -1,0 +1,31 @@
+package lru_cache
+
+import "testing"
+
+func TestLRUCache(t *testing.T) {
+	t.Skip("remove this skip when you are ready to solve LRU Cache")
+
+	cache := Constructor(2)
+
+	cache.Put(1, 1)
+	cache.Put(2, 2)
+	if got := cache.Get(1); got != 1 {
+		t.Fatalf("Get(1) = %d, want 1", got)
+	}
+
+	cache.Put(3, 3)
+	if got := cache.Get(2); got != -1 {
+		t.Fatalf("Get(2) = %d, want -1 after eviction", got)
+	}
+
+	cache.Put(4, 4)
+	if got := cache.Get(1); got != -1 {
+		t.Fatalf("Get(1) = %d, want -1 after eviction", got)
+	}
+	if got := cache.Get(3); got != 3 {
+		t.Fatalf("Get(3) = %d, want 3", got)
+	}
+	if got := cache.Get(4); got != 4 {
+		t.Fatalf("Get(4) = %d, want 4", got)
+	}
+}
