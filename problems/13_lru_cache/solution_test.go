@@ -3,7 +3,6 @@ package lru_cache
 import "testing"
 
 func TestLRUCache(t *testing.T) {
-	t.Skip("remove this skip when you are ready to solve LRU Cache")
 
 	cache := Constructor(2)
 
